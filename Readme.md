@@ -41,8 +41,15 @@ chmod +x ~/.config/waybar/scripts/todo/*.sh
 ```
 
 > [!CAUTION]
-> The bash script is configured to use `$HOME/.config/waybar/scripts/todo` (as the TODO_DIR variable). So, you can use the suggested installation step or modify it as needed.
+> The bash script is configured to use `$HOME/.config/waybar/scripts/todo` (as the TODO_DIR variable). So, you can use the suggested installation step or modify it as needed. <br></br>
+> The script uses Foot as default terminal. If you need to change this modify this line in `todo.sh`
 
+```
+    open_tui)
+        foot -e "$TUI_SCRIPT" # change this to your preferred terminal
+        exit 0
+        ;;
+```
 3. Add the module to your Waybar configuration: 
 ```jsonc
 {
@@ -91,6 +98,8 @@ chmod +x ~/.config/waybar/scripts/todo/*.sh
 - Automatically deletes tasks at the configured time (once per day)
 - Updates `LAST_CHECKED_TIMESTAMP` to prevent duplicate deletions
 - Supports deleting either completed tasks or all tasks
+- **Can disable auto-delete by typing $${\color{red}disable}$$**
+
 
 **`sort_tasks()`**
 - Sorts all tasks by priority number (ascending order)
@@ -121,7 +130,7 @@ chmod +x ~/.config/waybar/scripts/todo/*.sh
 - Allows user to set a daily deletion time
 - Accepts flexible time formats (e.g., "14:10", "2:10pm")
 - Lets user choose to delete completed tasks or all tasks
-- Can disable auto-delete by typing "disable"
+- **Can disable auto-delete by typing $${\color{red}disable}$$**
 
 **`set_middle_click()`**
 - Configures what happens when middle-clicking the Waybar module
