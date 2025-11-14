@@ -5,6 +5,7 @@ TODO_DIR="$HOME/.config/waybar/scripts/todo"
 TASK_FILE="$TODO_DIR/tasks.txt"
 CONF_FILE="$TODO_DIR/todo.conf"
 TUI_SCRIPT="$TODO_DIR/todo_tui.sh"
+TERMINAL="${TERMINAL:-foot}"
 touch "$TASK_FILE"
 touch "$CONF_FILE"
 
@@ -45,7 +46,7 @@ case "$1" in
         exit 0
         ;;
     open_tui)
-        foot -e "$TUI_SCRIPT"
+        "$TERMINAL" -e "$TUI_SCRIPT"
         exit 0
         ;;
     middle_click)

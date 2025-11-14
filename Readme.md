@@ -41,15 +41,20 @@ chmod +x ~/.config/waybar/scripts/todo/*.sh
 ```
 
 > [!CAUTION]
-> The bash script is configured to use `$HOME/.config/waybar/scripts/todo` (as the TODO_DIR variable). So, you can use the suggested installation step or modify it as needed. <br></br>
-> The script uses Foot as default terminal. If you need to change this modify this line in `todo.sh`
+> The bash script is configured to use `$HOME/.config/waybar/scripts/todo` (as
+> the TODO_DIR variable). So, you can use the suggested installation step or
+> modify it as needed. <br></br>
 
+> [!CAUTION]
+> The script uses the terminal set in `$TERMINAL` or Foot by default. If you need
+> to change this, set the `$TERMINAL` environment variable or modify this line in `todo.sh`. 
+
+``` bash
+# ...
+TERMINAL="${TERMINAL:-foot}"
+# ...
 ```
-    open_tui)
-        foot -e "$TUI_SCRIPT" # change this to your preferred terminal
-        exit 0
-        ;;
-```
+
 3. Add the module to your Waybar configuration: 
 ```jsonc
 {
